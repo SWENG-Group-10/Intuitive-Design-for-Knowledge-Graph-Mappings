@@ -1,6 +1,15 @@
 <template>
   <v-app>
-    
+    <Header/>
+    <v-row align-content="start" no-gutters>
+      <v-col>
+        <Mapping/>
+      </v-col>
+      <v-col class="justify-start">
+          <Ontology/>
+          <JSONViewer/>
+      </v-col>
+    </v-row>
   </v-app>
 </template>
 

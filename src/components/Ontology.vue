@@ -2,7 +2,7 @@
  <v-card
   flat
   tile
-  color="red"
+  outlined
   height="400"
   >
     <h3>ONTOLOGY</h3>

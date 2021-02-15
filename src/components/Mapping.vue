@@ -2,7 +2,7 @@
   <v-card
   flat
   tile
-  color="green"
+  outlined
   height="100%"
   >
     <h3>MAPPING</h3>

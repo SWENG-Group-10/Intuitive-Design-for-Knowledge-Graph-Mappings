@@ -6,7 +6,11 @@
     height="400"
     >
         <v-container>
-            <div class="body-1">{{jsonString(json)}}</div>
+            <v-textarea
+            auto-grow
+            readonly
+            v-model = "json"
+            ></v-textarea>
         </v-container>
     </v-card>
 </template>
@@ -24,10 +28,8 @@ export default {
             ]
         }
     }),
-    methods:{
-        jsonString(json){
-            return JSON.stringify(json, null, 2)
-        }
+    created(){
+        this.json = JSON.stringify(this.json, null, 2)
     }
 }
 </script>

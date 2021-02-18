@@ -106,7 +106,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-<img src="images/DynamicModel.png" alt="Logo" width="90" height="90">
+<p align="center"><img src="images/DynamicModel.png" alt="Logo">
+</p>
 This particular sequence is a sequence where the user uploads a Schema or Ontology. The system then displays the KG. The user then selects an object from the ontology and defines any relationship that object has to another or defines an attribute of the selected object. The system updates the attributes and relationships of the object, the system can export the updated schema as JSON.
 
 

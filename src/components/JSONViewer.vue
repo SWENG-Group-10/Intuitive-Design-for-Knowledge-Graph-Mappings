@@ -1,6 +1,6 @@
 <template>
   <v-card flat tile outlined height="400">
-    <div class="text-center">
+    <div class="text-right">
       <v-btn
         :loading="loading3"
         :disabled="loading3"

@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import Backend from "../Backend/Backend"
 export default {
     data: () => ({
         // Sample JSON for testing purposes
@@ -34,7 +35,7 @@ export default {
     }),
     created(){
         // delimits the JSON Schema into nicely displayed way
-        this.json = JSON.stringify(this.json, null, 2)
+        this.json = Backend.jsonPrettifier(this.json)
     }
 }
 </script>

@@ -6,8 +6,50 @@
   color="blue"
   >
     <h3>HEADER</h3>
+
+    <v-card-actions>
+      
+      <v-btn 
+        color="red"
+        width=200
+      >
+        Subject
+      </v-btn>
+
+      <v-btn
+        color="lime"
+        width=200
+      >
+        Predicate
+      </v-btn>
+
+      <v-btn
+        color="blue lighten-3"
+        width=200
+      >
+        Object
+      </v-btn>
+
+      <v-btn
+        color="yellow lighten-3"
+        width=200
+      >
+        Literal
+      </v-btn>
+      
+      <v-btn
+        color="orange lighten-3"
+        width=200
+      >
+        Type
+      </v-btn>
+    </v-card-actions>
+
   </v-card>
+  
+
 </template>
+
 
 <script>
 export default {

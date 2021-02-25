@@ -11,35 +11,35 @@
       
       <v-btn 
         color="red"
-        width=200
+        width=180
       >
         Subject
       </v-btn>
 
       <v-btn
         color="lime"
-        width=200
+        width=180
       >
         Predicate
       </v-btn>
 
       <v-btn
         color="blue lighten-3"
-        width=200
+        width=180
       >
         Object
       </v-btn>
 
       <v-btn
         color="yellow lighten-3"
-        width=200
+        width=180
       >
         Literal
       </v-btn>
       
       <v-btn
         color="orange lighten-3"
-        width=200
+        width=180
       >
         Type
       </v-btn>

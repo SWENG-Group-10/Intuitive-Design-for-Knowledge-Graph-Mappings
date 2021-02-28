@@ -7,6 +7,12 @@
     >
     <!-- Wrap the JSON displayer in a read only Vue Container -->
     <!-- deals with large JSON Schema as well as small -->
+
+    
+
+    <input type='file' @change="onFilePicked(event)">
+
+
         <v-container>
             <v-textarea
             auto-grow 
@@ -36,6 +42,20 @@ export default {
     created(){
         // delimits the JSON Schema into nicely displayed way
         this.json = Backend.jsonPrettifier(this.json)
+    },
+
+
+    //json change handler to test the backend
+    //gives error saying event is undefined but might still run anyway? not sure
+    methods: {
+        onFilePicked: function(event) {
+                var jsonIN = event.target;  
+                var inputFile = jsonIN.files[0];
+                console.log(inputFile.name);
+
+                var example = Backend.jsonCrawler(inputFile);
+                console.log(example);
+            }
     }
 }
 </script>

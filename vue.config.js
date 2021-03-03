@@ -1,5 +1,4 @@
 module.exports = {
-  transpileDependencies: [
-    'vuetify'
-  ]
-}
+  transpileDependencies: ["vuetify"],
+  publicPath: "/Intuitive-Design-for-Knowledge-Graph-Mappings/",
+};

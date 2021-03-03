@@ -10,7 +10,7 @@
 
     
 
-    <input type='file' @change="onFilePicked(event)">
+    <input type='file' id="jsonUpload" @change="onFilePicked" accept=".json">
 
 
         <v-container>
@@ -46,15 +46,11 @@ export default {
 
 
     //json change handler to test the backend
-    //gives error saying event is undefined but might still run anyway? not sure
     methods: {
-        onFilePicked: function(event) {
-                var jsonIN = event.target;  
-                var inputFile = jsonIN.files[0];
-                console.log(inputFile.name);
-
-                var example = Backend.jsonCrawler(inputFile);
-                console.log(example);
+        onFilePicked: function() {
+                
+                let crawledJSON = Backend.jsonCrawler(document.getElementById("jsonUpload").files[0])
+                console.log(crawledJSON);
             }
     }
 }

@@ -26,22 +26,19 @@
 <script>
 import Backend from "../Backend/Backend"
 export default {
+    props:{
+        file:{
+            default: function(){
+               return{} 
+            }
+        }
+    },
     data: () => ({
-        json: {
-            id: 1,
-            name: "A green door",
-            price: 12.5,
-            tags: ["home", "green"],
-            test: "test fdgajkhfsdjghadkjghadfkjghbadfkjhgadfg",
-            still: "testing woop",
-            Wow: "yup the pup",
-            Dogs: "I like dogs",
-
-        },
+        
     }),
     created(){
         // delimits the JSON Schema into nicely displayed way
-        this.json = Backend.jsonPrettifier(this.json)
+        this.file = Backend.jsonPrettifier(this.file)
     },
     watch: {
         loader() {

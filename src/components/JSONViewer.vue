@@ -43,19 +43,6 @@ export default {
         // delimits the JSON Schema into nicely displayed way
         this.json = Backend.jsonPrettifier(this.json)
     },
-
-
-    //json change handler to test the backend
-    methods: {
-        onFilePicked: function() {
-                
-                let crawledJSON = Backend.jsonCrawler(document.getElementById("jsonUpload").files[0])
-                console.log(crawledJSON);
-            }
-    }
-}
-</script>
-
     watch: {
         loader() {
             const l = this.loader
@@ -66,5 +53,13 @@ export default {
             this.loader = null
         },
     },
-};
+    //json change handler to test the backend
+    methods: {
+        onFilePicked: function() {
+                
+                let crawledJSON = Backend.jsonCrawler(document.getElementById("jsonUpload").files[0])
+                console.log(crawledJSON);
+            }
+    }
+}
 </script>

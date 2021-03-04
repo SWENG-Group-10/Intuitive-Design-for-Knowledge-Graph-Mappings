@@ -27,17 +27,17 @@
 import Backend from "../Backend/Backend"
 export default {
     data: () => ({
-        // Sample JSON for testing purposes
-        // Will add upload functionality later
         json: {
-            "id": 1,
-            "name": "A green door",
-            "price": 12.5,
-            "tags": [
-                "home",
-                "green"
-            ]
-        }
+            id: 1,
+            name: "A green door",
+            price: 12.5,
+            tags: ["home", "green"],
+            test: "test fdgajkhfsdjghadkjghadfkjghbadfkjhgadfg",
+            still: "testing woop",
+            Wow: "yup the pup",
+            Dogs: "I like dogs",
+
+        },
     }),
     created(){
         // delimits the JSON Schema into nicely displayed way
@@ -56,6 +56,15 @@ export default {
 }
 </script>
 
-<style>
+    watch: {
+        loader() {
+            const l = this.loader
+            this[l] = !this[l]
 
-</style>
+            setTimeout(() => (this[l] = false), 3000)
+
+            this.loader = null
+        },
+    },
+};
+</script>

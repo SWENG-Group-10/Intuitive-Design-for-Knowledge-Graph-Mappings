@@ -38,7 +38,7 @@
         </v-col>
         <v-col class="justify-start">
             <Ontology />
-            <JSONViewer />
+            <JSONViewer :file="file"/>
         </v-col>
     </v-row>
 </v-app>
@@ -64,6 +64,17 @@ export default {
         loading: false,
         selection: 1,
         show: true,
+        file: {
+            id: 1,
+            name: "A green door",
+            price: 12.5,
+            tags: ["home", "green"],
+            test: "test fdgajkhfsdjghadkjghadfkjghbadfkjhgadfg",
+            still: "testing woop",
+            Wow: "yup the pup",
+            Dogs: "I like dogs",
+
+        },
     }),
 
     methods: {

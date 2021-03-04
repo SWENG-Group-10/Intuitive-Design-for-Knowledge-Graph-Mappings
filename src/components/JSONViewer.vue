@@ -7,6 +7,12 @@
     >
     <!-- Wrap the JSON displayer in a read only Vue Container -->
     <!-- deals with large JSON Schema as well as small -->
+
+    
+
+    <input type='file' id="jsonUpload" @change="onFilePicked" accept=".json">
+
+
         <v-container>
             <v-textarea
             auto-grow 
@@ -18,6 +24,7 @@
 </template>
 
 <script>
+import Backend from "../Backend/Backend"
 export default {
     data: () => ({
         // Sample JSON for testing purposes
@@ -34,7 +41,17 @@ export default {
     }),
     created(){
         // delimits the JSON Schema into nicely displayed way
-        this.json = JSON.stringify(this.json, null, 2)
+        this.json = Backend.jsonPrettifier(this.json)
+    },
+
+
+    //json change handler to test the backend
+    methods: {
+        onFilePicked: function() {
+                
+                let crawledJSON = Backend.jsonCrawler(document.getElementById("jsonUpload").files[0])
+                console.log(crawledJSON);
+            }
     }
 }
 </script>

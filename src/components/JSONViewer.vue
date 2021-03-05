@@ -17,7 +17,7 @@
             <v-textarea
             auto-grow 
             readonly
-            v-model = "json"
+            v-model = "file"
             ></v-textarea>
         </v-container>
     </v-card>

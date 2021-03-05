@@ -47,9 +47,13 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
+    </li>
+    <li>
       <a href="#of-note">Of Note</a>
     </li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li>
+      <a href="#acknowledgements">Acknowledgements</a>
+    </li>
   </ol>
 </details>
 

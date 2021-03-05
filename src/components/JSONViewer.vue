@@ -28,6 +28,7 @@ import Backend from "../Backend/Backend"
 export default {
     props:{
         file:{
+            type: Object,
             default: function(){
                return{} 
             }

@@ -47,6 +47,7 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
+      <a href="#of-note">Of Note</a>
     </li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -103,7 +104,9 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## Of note:
 
+Due to security protections in browser, currently to integrate the WebVowl system, user must run on local serve using steps above, or disable security controls on the deployed site.
 <!-- USAGE EXAMPLES -->
 ## Usage
 <p align="center"><img src="images/DynamicModel.png" alt="Logo">

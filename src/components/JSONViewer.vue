@@ -1,43 +1,28 @@
 <template>
-    <v-card
-    flat
-    tile
-    outlined
-    height="400"
-    >
+<v-card flat tile outlined height="400">
     <!-- Wrap the JSON displayer in a read only Vue Container -->
     <!-- deals with large JSON Schema as well as small -->
-
-    
-
-    <input type='file' id="jsonUpload" @change="onFilePicked" accept=".json">
-
-
-        <v-container>
-            <v-textarea
-            auto-grow 
-            readonly
-            v-model = "file"
-            ></v-textarea>
-        </v-container>
-    </v-card>
+    <v-container style="max-height: 399px" class="overflow-y-auto">
+        <pre>{{file}}</pre>
+    </v-container>
+</v-card>
 </template>
 
 <script>
 import Backend from "../Backend/Backend"
 export default {
-    props:{
-        file:{
+    props: {
+        file: {
             type: Object,
-            default: function(){
-               return{} 
+            default: function () {
+                return {}
             }
         }
     },
     data: () => ({
-        
+
     }),
-    created(){
+    created() {
         // delimits the JSON Schema into nicely displayed way
         this.file = Backend.jsonPrettifier(this.file)
     },
@@ -53,11 +38,11 @@ export default {
     },
     //json change handler to test the backend
     methods: {
-        onFilePicked: function() {
-                
-                let crawledJSON = Backend.jsonCrawler(document.getElementById("jsonUpload").files[0])
-                console.log(crawledJSON);
-            }
+        onFilePicked: function () {
+
+            let crawledJSON = Backend.jsonCrawler(document.getElementById("jsonUpload").files[0])
+            console.log(crawledJSON);
+        }
     }
 }
 </script>

@@ -21,6 +21,6 @@ export default {
     return array;
   },
   jsonPrettifier(file) {
-    return JSON.stringify(file, null, 2); //Just doing the prettifying of the json file in the backend as opposed to in the vue file - DG xx
+    return JSON.stringify(JSON.parse(file), null, 2); //Just doing the prettifying of the json file in the backend as opposed to in the vue file - DG xx
   },
 };

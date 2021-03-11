@@ -1,78 +1,122 @@
-<template>
-<v-app>
+<template >
+  <v-app>
+
     <v-dialog v-model="show">
-        <v-card :loading="loading" class="mx-auto my-12" max-width="500">
-            <template slot="progress">
-                <v-progress-linear color="blue" height="10" indeterminate></v-progress-linear>
-            </template>
+      <v-card height="100%" width="100%" :loading="loading">
+        <template slot="progress">
+          <v-progress-linear
+            color="blue"
+            height="10"
+            indeterminate
+          ></v-progress-linear>
+        </template>
 
-            <v-card-title>Intuitive Design for Knowledge Graph Mappings</v-card-title>
+        <v-card-title class="justify-center">  
+             Upload Files </v-card-title>
 
-            <v-divider class="mx-4"></v-divider>
+        <v-divider class="mx-4"></v-divider>
 
-            <v-card-actions>
-                <v-btn color="blue lighten-2" text @click="Upload">
-                    Upload Ontology
-                </v-btn>
-            </v-card-actions>
+        <v-col class="text-left">
+          <v-btn color="blue lighten-2" text @click="Upload">
+            Upload JSON file
+          </v-btn>
+        </v-col>
 
-            <v-card-actions>
-                <v-btn color="blue lighten-2" text @click="Upload">
-                    Upload JSON file
-                </v-btn>
-            </v-card-actions>
+        <v-col class="text-left">
+          <v-btn color="black lighten-2" text @click="Upload">
+            Drag and Drop your file here
+          </v-btn>
+        </v-col>
 
-            <v-card-actions>
-                <v-btn color="red lighten-2" text @click="show = false">
-                    Confirm
-                </v-btn>
-            </v-card-actions>
 
-        </v-card>
+        <v-col class="text-left">
+          <v-btn
+            :loading="loading3"
+            :disabled="loading3"
+            color="blue-grey"
+            class="ma-2 white--text"
+            @click="loader = 'loading3'">
+            Browse Files
+            <v-icon right dark> mdi-cloud-upload </v-icon>
+          </v-btn>
+        </v-col>
 
+        <v-col class="text-right">
+          <v-btn color="blue lighten-2" text @click="Upload">
+            Upload Ontology
+          </v-btn>
+        </v-col>
+
+        <v-col class="text-right">
+          <v-btn color="black lighten-2" text @click="Upload">
+            Drag and Drop your file here
+          </v-btn>
+        </v-col>
+
+        <v-col class="text-right">
+          <v-btn
+            :loading="loading3"
+            :disabled="loading3"
+            color="blue-grey"
+            class="ma-2 white--text"
+            @click="loader = 'loading3'">
+            Browse Files
+            <v-icon right dark> mdi-cloud-upload </v-icon>
+          </v-btn>
+        </v-col>
+
+        <v-card-actions class="justify-center">
+          <v-btn color="red lighten-2" text @click="show = false">
+            Create Mapping
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </v-dialog>
+
+
     <Header />
     <v-row align-content="start" no-gutters>
-        <v-col>
-            <Mapping />
-        </v-col>
-        <v-col class="justify-start">
-            <Ontology />
-            <JSONViewer />
-        </v-col>
+      <v-col>
+        <Mapping />
+      </v-col>
+      <v-col class="justify-start">
+        <Ontology />
+        <JSONViewer />
+      </v-col>
     </v-row>
-</v-app>
+
+
+  </v-app>
 </template>
 
 <script>
-import JSONViewer from "./components/JSONViewer"
-import Ontology from "./components/Ontology"
-import Mapping from "./components/Mapping"
-import Header from "./components/Header"
+import JSONViewer from "./components/JSONViewer";
+import Ontology from "./components/Ontology";
+import Mapping from "./components/Mapping";
+import Header from "./components/Header";
 
 export default {
-    name: 'App',
+  name: "App",
 
-    components: {
-        Mapping,
-        Ontology,
-        JSONViewer,
-        Header
+  components: {
+    Mapping,
+    Ontology,
+    JSONViewer,
+    Header,
+  },
+
+  data: () => ({
+    loading: false,
+    selection: 1,
+    show: true,
+  }),
+
+  methods: {
+    Upload() {
+      this.loading = true;
+
+      setTimeout(() => (this.loading = false), 2000);
     },
-
-    data: () => ({
-        loading: false,
-        selection: 1,
-        show: true,
-    }),
-
-    methods: {
-        Upload() {
-            this.loading = true
-
-            setTimeout(() => (this.loading = false), 2000)
-        },
-    },
-
+  },
 };
 </script>

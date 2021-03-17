@@ -15,15 +15,15 @@
             <v-container>
                 <v-row>
                     <v-col class="text-center">
-                        <v-btn color="blue lighten-2" text @click="Upload">
-                            Upload JSON file
-                        </v-btn>
+                        <div class="blue--text font-weight-medium title">
+                            UPLOAD JSON FILE
+                        </div>
                     </v-col>
 
                     <v-col class="text-center">
-                        <v-btn color="blue lighten-2" text @click="Upload">
-                            Upload Ontology
-                        </v-btn>
+                        <div class="blue--text font-weight-medium title">
+                            UPLOAD ONTOLOGY
+                        </div>
                     </v-col>
                 </v-row>
 
@@ -56,7 +56,7 @@
                 </v-row>
 
                 <v-card-actions class="justify-center">
-                    <v-btn color="red lighten-2" text @click="show = false" :disabled = "uploaded">
+                    <v-btn color="red lighten-2" text @click="show = false" :disabled="uploaded">
                         Create Mapping
                     </v-btn>
                 </v-card-actions>

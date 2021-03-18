@@ -11,23 +11,40 @@
             <v-divider class="mx-4"></v-divider>
 
             <v-card-actions>
-                <v-btn color="blue lighten-2" text @click="Upload">
+
+                <v-btn color="blue lighten-2" text @click="ontologyUpload">
                     Upload Ontology
                 </v-btn>
             </v-card-actions>
 
             <v-card-actions>
-                <v-btn color="blue lighten-2" text @click="Upload">
+                <v-btn color="blue lighten-2" text @click="jsonUpload">
                     Upload JSON file
                 </v-btn>
             </v-card-actions>
-
             <v-card-actions>
                 <v-btn color="red lighten-2" text @click="show = false">
                     Confirm
                 </v-btn>
             </v-card-actions>
-
+            <input
+                id = "1"
+                ref="jsonLoader"
+                class="d-none"
+                type="file"
+                accept=".json"
+                hidden    
+                @change="onFilePicked"
+            >
+            <input
+                id = "2"
+                ref="ontologyLoader"
+                class="d-none"
+                type="file"
+                accept=".json"
+                hidden    
+                @change="onFilePicked"
+            >
         </v-card>
 
     </v-dialog>
@@ -49,6 +66,8 @@ import JSONViewer from "./components/JSONViewer"
 import Ontology from "./components/Ontology"
 import Mapping from "./components/Mapping"
 import Header from "./components/Header"
+import Backend from "./Backend/Backend"
+
 
 export default {
     name: 'App',
@@ -67,11 +86,32 @@ export default {
     }),
 
     methods: {
-        Upload() {
-            this.loading = true
 
-            setTimeout(() => (this.loading = false), 2000)
+        // handler for when a json button is pressed
+        jsonUpload() {
+            this.isSelecting = true
+            window.addEventListener('focus', () => {
+            this.isSelecting = false
+        }, { once: true })
+
+        this.$refs.jsonLoader.click()
+    },
+        //and handler for when ontology button is pressed
+        ontologyUpload() {
+            this.isSelecting = true
+            window.addEventListener('focus', () => {
+            this.isSelecting = false
+        }, { once: true })
+
+        this.$refs.ontologyLoader.click()
+
+
         },
+        //handler for file change currently doesnt work for ontology selection
+        onFilePicked: function() {
+                let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
+                console.log(crawledJSON); 
+            }
     },
 
 };

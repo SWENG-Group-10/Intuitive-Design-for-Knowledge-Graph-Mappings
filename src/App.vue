@@ -77,6 +77,45 @@
         Type
       </v-btn>
 
+         <v-dialog
+        v-model="dialog"
+        width="500"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            color="red darken-2"
+            dark
+            v-bind="attrs"
+            v-on="on"
+          >
+            Return
+          </v-btn>
+        </template>
+  
+        <v-card>
+          <v-card-title class="headline grey lighten-2">
+            Are you sure?
+          </v-card-title>
+  
+          <v-card-text>
+            If you press 'Exit' you will delete your current mapping
+          </v-card-text>
+  
+          <v-divider></v-divider>
+  
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="primary"
+              text
+              @click="dialog = false"
+            >
+              Exit
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
     </v-card-actions>
 
   </v-card>

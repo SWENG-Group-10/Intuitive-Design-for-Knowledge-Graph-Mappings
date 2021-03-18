@@ -34,16 +34,16 @@
                 type="file"
                 accept=".json"
                 hidden    
-                @change="onFilePicked"
+                @change="onJSONPicked"
             >
             <input
                 id = "2"
                 ref="ontologyLoader"
                 class="d-none"
                 type="file"
-                accept=".json"
+                accept=".ttl"
                 hidden    
-                @change="onFilePicked"
+                @change="onTTLPicked"
             >
         </v-card>
 
@@ -108,10 +108,14 @@ export default {
 
         },
         //handler for file change currently doesnt work for ontology selection
-        onFilePicked: function() {
+        onJSONPicked: function() {
                 let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
                 console.log(crawledJSON); 
-            }
+            },
+
+        onTTLPicked: function() {
+                console.log(document.getElementById("2").files[0]); 
+            }    
     },
 
 };

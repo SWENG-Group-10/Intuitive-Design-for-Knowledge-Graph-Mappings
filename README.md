@@ -1,11 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -48,7 +40,12 @@
     <li>
       <a href="#getting-started">Getting Started</a>
     </li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li>
+      <a href="#of-note">Of Note</a>
+    </li>
+    <li>
+      <a href="#acknowledgements">Acknowledgements</a>
+    </li>
   </ol>
 </details>
 
@@ -103,7 +100,9 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## Of note:
 
+Due to security protections in browser, currently to integrate the WebVowl system, user must run on local serve using steps above, or disable security controls on the deployed site.
 <!-- USAGE EXAMPLES -->
 ## Usage
 <p align="center"><img src="images/DynamicModel.png" alt="Logo">

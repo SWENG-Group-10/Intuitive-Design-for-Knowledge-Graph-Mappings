@@ -36,13 +36,5 @@ export default {
             this.loader = null
         },
     },
-    //json change handler to test the backend
-    methods: {
-        onFilePicked: function () {
-
-            let crawledJSON = Backend.jsonCrawler(document.getElementById("jsonUpload").files[0])
-            console.log(crawledJSON);
-        }
-    }
 }
 </script>

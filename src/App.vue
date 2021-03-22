@@ -288,11 +288,36 @@ export default {
     }),
 
     methods: {
-        Upload() {
-            this.loading = true;
 
-            setTimeout(() => (this.loading = false), 2000);
+        // handler for when a json button is pressed
+        jsonUpload() {
+            this.isSelecting = true
+            window.addEventListener('focus', () => {
+            this.isSelecting = false
+        }, { once: true })
+
+        this.$refs.jsonLoader.click()
+    },
+        //and handler for when ontology button is pressed
+        ontologyUpload() {
+            this.isSelecting = true
+            window.addEventListener('focus', () => {
+            this.isSelecting = false
+        }, { once: true })
+
+        this.$refs.ontologyLoader.click()
+
+
         },
+        //handler for file change currently doesnt work for ontology selection
+        onJSONPicked: function() {
+                let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
+                console.log(crawledJSON); 
+            },
+
+        onTTLPicked: function() {
+                console.log(document.getElementById("2").files[0]); 
+            }    
     },
 };
 </script>

@@ -65,27 +65,26 @@
     </v-dialog>
     <v-dialog v-model="dialog" width="500">
         <v-card>
-            <v-card-title class="headline grey lighten-2">
+            <v-card-title class="headline lighten-2">
                 Are you sure?
             </v-card-title>
-
             <v-card-text>
-                If you press 'Exit' you will delete your current mapping
+                If you press 'Reset' you will delete your current mapping.<br>Press 'Cancel' to continue current mapping.
             </v-card-text>
-
             <v-divider></v-divider>
-
             <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="primary" text @click="dialog = false; show = true">
-                    Exit
+                <v-btn color="grey" text  @click="dialog = false">
+                    Cancel
+                </v-btn>
+                <v-btn color="red" text @click="dialog = false; show = true">
+                    Reset
                 </v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
 
     <div v-if="!show">
-        <v-toolbar color="teal" dark>
+        <v-toolbar color="blue" dark>
             <v-btn icon @click="dialog = true">
                 <v-icon>mdi-arrow-left</v-icon>
             </v-btn>

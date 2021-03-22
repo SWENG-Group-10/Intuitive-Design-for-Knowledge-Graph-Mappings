@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import BE from "../Backend/Backend"
 export default {
     props: {
         file: {
@@ -21,6 +22,9 @@ export default {
     data: () => ({
 
     }),
+    created(){
+        this.file = BE.jsonPrettifier(this.file)
+    },
     watch: {
         loader() {
             const l = this.loader

@@ -1,12 +1,8 @@
 <template>
 <v-app>
 
-    <v-dialog v-model="show">
+    <v-dialog v-model="show" persistent>
         <v-card width="100%" :loading="loading">
-            <template slot="progress">
-                <v-progress-linear color="blue" height="10" indeterminate></v-progress-linear>
-            </template>
-
             <v-card-title class="justify-center">
                 Upload Files
             </v-card-title>
@@ -29,12 +25,12 @@
 
                 <v-row>
                     <v-col class="text-center">
-                        <v-btn color="black lighten-2" text @click="Upload">
+                        <v-btn color="black lighten-2" text>
                             Drag and Drop your file here
                         </v-btn>
                     </v-col>
                     <v-col class="text-center">
-                        <v-btn color="black lighten-2" text @click="Upload">
+                        <v-btn color="black lighten-2" text>
                             Drag and Drop your file here
                         </v-btn>
                     </v-col>
@@ -42,21 +38,19 @@
 
                 <v-row>
                     <v-col class="text-center">
-                        <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text" @click="jsonUpload()">
-                            Browse Files
-                            <v-icon right dark> mdi-cloud-upload </v-icon>
-                        </v-btn>
+                        <input id="1" ref="jsonfile" type="file" accept=".json" @change="jsonUpload()">
                     </v-col>
                     <v-col class="text-center">
-                        <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text" @click="ontologyUpload()">
+                        <v-btn color="blue-grey" class="ma-2 white--text" @click="ontologyUpload()">
                             Browse Files
                             <v-icon right dark> mdi-cloud-upload </v-icon>
                         </v-btn>
+                        <input id="2" ref="ontologyLoader" class="d-none" type="file" accept=".ttl" hidden @change="onTTLPicked">
                     </v-col>
                 </v-row>
 
                 <v-card-actions class="justify-center">
-                    <v-btn color="red lighten-2" text @click="show = false" :disabled="uploaded">
+                    <v-btn color="red lighten-2" text @click="show = false">
                         Create Mapping
                     </v-btn>
                 </v-card-actions>
@@ -73,7 +67,7 @@
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
-                <v-btn color="grey" text  @click="dialog = false">
+                <v-btn color="grey" text @click="dialog = false">
                     Cancel
                 </v-btn>
                 <v-btn color="red" text @click="dialog = false; show = true">
@@ -97,7 +91,7 @@
             </v-col>
             <v-col class="justify-start">
                 <Ontology />
-                <JSONViewer :file="file" />
+                <JSONViewer :file="text" />
             </v-col>
         </v-row>
     </div>
@@ -109,7 +103,7 @@
 import JSONViewer from "./components/JSONViewer"
 import Ontology from "./components/Ontology"
 import Mapping from "./components/Mapping"
-import Backend from "./Backend/Backend"
+// import Backend from "./Backend/Backend"
 
 export default {
     name: "App",
@@ -125,127 +119,34 @@ export default {
         selection: 1,
         show: true,
         dialog: false,
-        file: {
-            "web-app": {
-                "servlet": [{
-                        "servlet-name": "cofaxCDS",
-                        "servlet-class": "org.cofax.cds.CDSServlet",
-                        "init-param": {
-                            "configGlossary:installationAt": "Philadelphia, PA",
-                            "configGlossary:adminEmail": "ksm@pobox.com",
-                            "configGlossary:poweredBy": "Cofax",
-                            "configGlossary:poweredByIcon": "/images/cofax.gif",
-                            "configGlossary:staticPath": "/content/static",
-                            "templateProcessorClass": "org.cofax.WysiwygTemplate",
-                            "templateLoaderClass": "org.cofax.FilesTemplateLoader",
-                            "templatePath": "templates",
-                            "templateOverridePath": "",
-                            "defaultListTemplate": "listTemplate.htm",
-                            "defaultFileTemplate": "articleTemplate.htm",
-                            "useJSP": false,
-                            "jspListTemplate": "listTemplate.jsp",
-                            "jspFileTemplate": "articleTemplate.jsp",
-                            "cachePackageTagsTrack": 200,
-                            "cachePackageTagsStore": 200,
-                            "cachePackageTagsRefresh": 60,
-                            "cacheTemplatesTrack": 100,
-                            "cacheTemplatesStore": 50,
-                            "cacheTemplatesRefresh": 15,
-                            "cachePagesTrack": 200,
-                            "cachePagesStore": 100,
-                            "cachePagesRefresh": 10,
-                            "cachePagesDirtyRead": 10,
-                            "searchEngineListTemplate": "forSearchEnginesList.htm",
-                            "searchEngineFileTemplate": "forSearchEngines.htm",
-                            "searchEngineRobotsDb": "WEB-INF/robots.db",
-                            "useDataStore": true,
-                            "dataStoreClass": "org.cofax.SqlDataStore",
-                            "redirectionClass": "org.cofax.SqlRedirection",
-                            "dataStoreName": "cofax",
-                            "dataStoreDriver": "com.microsoft.jdbc.sqlserver.SQLServerDriver",
-                            "dataStoreUrl": "jdbc:microsoft:sqlserver://LOCALHOST:1433;DatabaseName=goon",
-                            "dataStoreUser": "sa",
-                            "dataStorePassword": "dataStoreTestQuery",
-                            "dataStoreTestQuery": "SET NOCOUNT ON;select test='test';",
-                            "dataStoreLogFile": "/usr/local/tomcat/logs/datastore.log",
-                            "dataStoreInitConns": 10,
-                            "dataStoreMaxConns": 100,
-                            "dataStoreConnUsageLimit": 100,
-                            "dataStoreLogLevel": "debug",
-                            "maxUrlLength": 500
-                        }
-                    },
-                    {
-                        "servlet-name": "cofaxEmail",
-                        "servlet-class": "org.cofax.cds.EmailServlet",
-                        "init-param": {
-                            "mailHost": "mail1",
-                            "mailHostOverride": "mail2"
-                        }
-                    },
-                    {
-                        "servlet-name": "cofaxAdmin",
-                        "servlet-class": "org.cofax.cds.AdminServlet"
-                    },
-
-                    {
-                        "servlet-name": "fileServlet",
-                        "servlet-class": "org.cofax.cds.FileServlet"
-                    },
-                    {
-                        "servlet-name": "cofaxTools",
-                        "servlet-class": "org.cofax.cms.CofaxToolsServlet",
-                        "init-param": {
-                            "templatePath": "toolstemplates/",
-                            "log": 1,
-                            "logLocation": "/usr/local/tomcat/logs/CofaxTools.log",
-                            "logMaxSize": "",
-                            "dataLog": 1,
-                            "dataLogLocation": "/usr/local/tomcat/logs/dataLog.log",
-                            "dataLogMaxSize": "",
-                            "removePageCache": "/content/admin/remove?cache=pages&id=",
-                            "removeTemplateCache": "/content/admin/remove?cache=templates&id=",
-                            "fileTransferFolder": "/usr/local/tomcat/webapps/content/fileTransferFolder",
-                            "lookInContext": 1,
-                            "adminGroupID": 4,
-                            "betaServer": true
-                        }
-                    }
-                ],
-                "servlet-mapping": {
-                    "cofaxCDS": "/",
-                    "cofaxEmail": "/cofaxutil/aemail/*",
-                    "cofaxAdmin": "/admin/*",
-                    "fileServlet": "/static/*",
-                    "cofaxTools": "/tools/*"
-                },
-
-                "taglib": {
-                    "taglib-uri": "cofax.tld",
-                    "taglib-location": "/WEB-INF/tlds/cofax.tld"
-                }
-            }
-        },
+        text: ""
     }),
 
     methods: {
 
         // handler for when a json button is pressed
         jsonUpload() {
-            this.isSelecting = true
-            window.addEventListener('focus', () => {
-                this.isSelecting = false
-            }, {
-                once: true
-            })
+            console.log("selected a file")
+            console.log(this.$refs.jsonfile.files[0])
 
-            this.$refs.jsonLoader.click()
+            let file = this.$refs.jsonfile.files[0]
+            if(!file){
+                return
+            }
+            let reader = new FileReader()
+            reader.readAsText(file, "UTF-8")
+            reader.onload = evt => {
+                this.text = evt.target.result
+            }
+            reader.onerror = evt => {
+                console.error(evt)
+            }
         },
         //and handler for when ontology button is pressed
         ontologyUpload() {
-            this.isSelecting = true
+            this.loading = true
             window.addEventListener('focus', () => {
-                this.isSelecting = false
+                this.loading = false
             }, {
                 once: true
             })
@@ -255,8 +156,7 @@ export default {
         },
         //handler for file change currently doesnt work for ontology selection
         onJSONPicked: function () {
-            let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
-            console.log(crawledJSON);
+            // let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
         },
 
         onTTLPicked: function () {

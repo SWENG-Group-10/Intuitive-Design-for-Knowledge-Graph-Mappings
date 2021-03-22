@@ -42,13 +42,13 @@
 
                 <v-row>
                     <v-col class="text-center">
-                        <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text" @click="loader = 'loading3'">
+                        <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text" @click="jsonUpload()">
                             Browse Files
                             <v-icon right dark> mdi-cloud-upload </v-icon>
                         </v-btn>
                     </v-col>
                     <v-col class="text-center">
-                        <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text" @click="loader = 'loading3'">
+                        <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text" @click="ontologyUpload()">
                             Browse Files
                             <v-icon right dark> mdi-cloud-upload </v-icon>
                         </v-btn>

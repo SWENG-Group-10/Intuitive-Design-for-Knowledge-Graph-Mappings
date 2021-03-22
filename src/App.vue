@@ -84,7 +84,8 @@
                 </v-card>
             </v-dialog>
 
-    <v-card height="70" tile flat color="blue">
+    <div v-if="!show">
+        <v-card height="70" tile flat color="blue">
         <v-btn @click="dialog = true">
             Return
         </v-btn>
@@ -99,6 +100,7 @@
             <JSONViewer :file="file" />
         </v-col>
     </v-row>
+    </div>
 
 </v-app>
 </template>

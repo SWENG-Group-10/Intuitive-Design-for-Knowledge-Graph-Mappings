@@ -90,6 +90,14 @@
                 <JSONViewer :file="text" />
             </v-col>
         </v-row>
+        <v-footer padless color="blue" dark height="100">
+            <v-col class="text-center" cols="12">
+                <v-btn color="green">
+                    Download mapping as .json<br>
+                    <v-icon>mdi-download</v-icon>
+                </v-btn>
+            </v-col>
+        </v-footer>
     </div>
 
 </v-app>
@@ -126,7 +134,7 @@ export default {
         // handler for when a json button is pressed
         jsonUpload() {
             let file = this.$refs.jsonfile.files[0]
-            if(!file){
+            if (!file) {
                 return
             }
             let reader = new FileReader()
@@ -139,14 +147,14 @@ export default {
             }
             this.onJSONPicked()
             this.jsonChosen = true
-            if (this.jsonChosen && this.ttlChosen){
+            if (this.jsonChosen && this.ttlChosen) {
                 this.chosen = true
             }
         },
         //and handler for when ontology button is pressed
         ontologyUpload() {
             let file = this.$refs.ttlfile.files[0]
-            if(!file){
+            if (!file) {
                 return
             }
             let reader = new FileReader()
@@ -159,7 +167,7 @@ export default {
             }
             this.onTTLPicked()
             this.ttlChosen = true
-            if (this.jsonChosen && this.ttlChosen){
+            if (this.jsonChosen && this.ttlChosen) {
                 this.chosen = true
             }
         },

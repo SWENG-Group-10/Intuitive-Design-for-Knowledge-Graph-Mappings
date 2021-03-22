@@ -9,11 +9,10 @@
 </template>
 
 <script>
-import Backend from "../Backend/Backend"
 export default {
     props: {
         file: {
-            type: Object,
+            type: String,
             default: function () {
                 return {}
             }
@@ -22,10 +21,6 @@ export default {
     data: () => ({
 
     }),
-    created() {
-        // delimits the JSON Schema into nicely displayed way
-        this.file = Backend.jsonPrettifier(this.file)
-    },
     watch: {
         loader() {
             const l = this.loader

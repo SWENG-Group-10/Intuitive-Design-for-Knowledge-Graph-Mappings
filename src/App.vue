@@ -63,43 +63,44 @@
             </v-container>
         </v-card>
     </v-dialog>
-       <v-dialog v-model="dialog" width="500">
-                <v-card>
-                    <v-card-title class="headline grey lighten-2">
-                        Are you sure?
-                    </v-card-title>
+    <v-dialog v-model="dialog" width="500">
+        <v-card>
+            <v-card-title class="headline grey lighten-2">
+                Are you sure?
+            </v-card-title>
 
-                    <v-card-text>
-                        If you press 'Exit' you will delete your current mapping
-                    </v-card-text>
+            <v-card-text>
+                If you press 'Exit' you will delete your current mapping
+            </v-card-text>
 
-                    <v-divider></v-divider>
+            <v-divider></v-divider>
 
-                    <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn color="primary" text @click="dialog = false; show = true">
-                            Exit
-                        </v-btn>
-                    </v-card-actions>
-                </v-card>
-            </v-dialog>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" text @click="dialog = false; show = true">
+                    Exit
+                </v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
 
     <div v-if="!show">
-        <v-card height="70" tile flat color="blue">
-        <v-btn @click="dialog = true">
-            Return
-        </v-btn>
-    </v-card>
+        <v-toolbar color="teal" dark>
+            <v-btn icon @click="dialog = true">
+                <v-icon>mdi-arrow-left</v-icon>
+            </v-btn>
+            <v-toolbar-title>Knowledge Graph Mapping Tool</v-toolbar-title>
+        </v-toolbar>
 
-    <v-row align-content="start" no-gutters>
-        <v-col>
-            <Mapping />
-        </v-col>
-        <v-col class="justify-start">
-            <Ontology />
-            <JSONViewer :file="file" />
-        </v-col>
-    </v-row>
+        <v-row align-content="start" no-gutters>
+            <v-col>
+                <Mapping />
+            </v-col>
+            <v-col class="justify-start">
+                <Ontology />
+                <JSONViewer :file="file" />
+            </v-col>
+        </v-row>
     </div>
 
 </v-app>

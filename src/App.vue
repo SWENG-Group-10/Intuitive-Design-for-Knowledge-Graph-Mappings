@@ -41,16 +41,12 @@
                         <input id="1" ref="jsonfile" type="file" accept=".json" @change="jsonUpload()">
                     </v-col>
                     <v-col class="text-center">
-                        <v-btn color="blue-grey" class="ma-2 white--text" @click="ontologyUpload()">
-                            Browse Files
-                            <v-icon right dark> mdi-cloud-upload </v-icon>
-                        </v-btn>
-                        <input id="2" ref="ontologyLoader" class="d-none" type="file" accept=".ttl" hidden @change="onTTLPicked">
+                        <input id="2" ref="ttlfile" type="file" accept=".ttl" @change="ontologyUpload()">
                     </v-col>
                 </v-row>
 
                 <v-card-actions class="justify-center">
-                    <v-btn color="red lighten-2" text @click="show = false">
+                    <v-btn color="blue" class="white--text" @click="show = false" :disabled="!chosen">
                         Create Mapping
                     </v-btn>
                 </v-card-actions>
@@ -103,7 +99,7 @@
 import JSONViewer from "./components/JSONViewer"
 import Ontology from "./components/Ontology"
 import Mapping from "./components/Mapping"
-// import Backend from "./Backend/Backend"
+import Backend from "./Backend/Backend"
 
 export default {
     name: "App",
@@ -116,19 +112,19 @@ export default {
 
     data: () => ({
         loading: false,
-        selection: 1,
         show: true,
+        chosen: false,
+        ttlChosen: false,
+        jsonChosen: false,
         dialog: false,
-        text: ""
+        text: "",
+        ttl: ""
     }),
 
     methods: {
 
         // handler for when a json button is pressed
         jsonUpload() {
-            console.log("selected a file")
-            console.log(this.$refs.jsonfile.files[0])
-
             let file = this.$refs.jsonfile.files[0]
             if(!file){
                 return
@@ -141,26 +137,40 @@ export default {
             reader.onerror = evt => {
                 console.error(evt)
             }
+            this.onJSONPicked()
+            this.jsonChosen = true
+            if (this.jsonChosen && this.ttlChosen){
+                this.chosen = true
+            }
         },
         //and handler for when ontology button is pressed
         ontologyUpload() {
-            this.loading = true
-            window.addEventListener('focus', () => {
-                this.loading = false
-            }, {
-                once: true
-            })
-
-            this.$refs.ontologyLoader.click()
-
+            let file = this.$refs.ttlfile.files[0]
+            if(!file){
+                return
+            }
+            let reader = new FileReader()
+            reader.readAsText(file, "UTF-8")
+            reader.onload = evt => {
+                this.ttl = evt.target.result
+            }
+            reader.onerror = evt => {
+                console.error(evt)
+            }
+            this.onTTLPicked()
+            this.ttlChosen = true
+            if (this.jsonChosen && this.ttlChosen){
+                this.chosen = true
+            }
         },
         //handler for file change currently doesnt work for ontology selection
         onJSONPicked: function () {
-            // let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
+            let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
+            console.log(crawledJSON)
         },
 
         onTTLPicked: function () {
-            console.log(document.getElementById("2").files[0]);
+            console.log(this.ttl);
         }
     },
 };

@@ -63,95 +63,32 @@
             </v-container>
         </v-card>
     </v-dialog>
+       <v-dialog v-model="dialog" width="500">
+                <v-card>
+                    <v-card-title class="headline grey lighten-2">
+                        Are you sure?
+                    </v-card-title>
 
+                    <v-card-text>
+                        If you press 'Exit' you will delete your current mapping
+                    </v-card-text>
 
-    <v-card
-     height="70"
-    tile
-    flat
-    color="blue"
-    >
-    <h3>HEADER</h3>
+                    <v-divider></v-divider>
 
-    <v-card-actions>
-      
-      <v-btn 
-        color="red"
-        width=180
-      >
-        Subject
-      </v-btn>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="primary" text @click="dialog = false">
+                            Exit
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
 
-      <v-btn
-        color="lime"
-        width=180
-      >
-        Predicate
-      </v-btn>
-
-      <v-btn
-        color="blue lighten-3"
-        width=180
-      >
-        Object
-      </v-btn>
-
-      <v-btn
-        color="yellow lighten-3"
-        width=180
-      >
-        Literal
-      </v-btn>
-      
-      <v-btn
-        color="orange lighten-3"
-        width=180
-      >
-        Type
-      </v-btn>
-
-         <v-dialog
-        v-model="dialog"
-        width="500"
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            color="red darken-2"
-            dark
-            v-bind="attrs"
-            v-on="on"
-          >
+    <v-card height="70" tile flat color="blue">
+        <v-btn @click="dialog = true">
             Return
-          </v-btn>
-        </template>
-  
-        <v-card>
-          <v-card-title class="headline grey lighten-2">
-            Are you sure?
-          </v-card-title>
-  
-          <v-card-text>
-            If you press 'Exit' you will delete your current mapping
-          </v-card-text>
-  
-          <v-divider></v-divider>
-  
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-              color="primary"
-              text
-              @click="dialog = false"
-            >
-              Exit
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-
-    </v-card-actions>
-
-  </v-card>
+        </v-btn>
+    </v-card>
 
     <v-row align-content="start" no-gutters>
         <v-col>
@@ -178,13 +115,14 @@ export default {
     components: {
         Mapping,
         Ontology,
-        JSONViewer    
+        JSONViewer
     },
 
     data: () => ({
         loading: false,
         selection: 1,
         show: true,
+        dialog: false,
         file: {
             "web-app": {
                 "servlet": [{
@@ -294,34 +232,38 @@ export default {
         jsonUpload() {
             this.isSelecting = true
             window.addEventListener('focus', () => {
-            this.isSelecting = false
-        }, { once: true })
+                this.isSelecting = false
+            }, {
+                once: true
+            })
 
-        this.$refs.jsonLoader.click()
-    },
+            this.$refs.jsonLoader.click()
+        },
         //and handler for when ontology button is pressed
         ontologyUpload() {
             this.isSelecting = true
             window.addEventListener('focus', () => {
-            this.isSelecting = false
-        }, { once: true })
+                this.isSelecting = false
+            }, {
+                once: true
+            })
 
-        this.$refs.ontologyLoader.click()
-
+            this.$refs.ontologyLoader.click()
 
         },
         //handler for file change currently doesnt work for ontology selection
-        onJSONPicked: function() {
-                let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
-                console.log(crawledJSON); 
-            },
+        onJSONPicked: function () {
+            let crawledJSON = Backend.jsonCrawler(document.getElementById("1").files[0])
+            console.log(crawledJSON);
+        },
 
-        onTTLPicked: function() {
-                console.log(document.getElementById("2").files[0]); 
-            }    
+        onTTLPicked: function () {
+            console.log(document.getElementById("2").files[0]);
+        }
     },
 };
 </script>
+
 <style>
 
 </style>

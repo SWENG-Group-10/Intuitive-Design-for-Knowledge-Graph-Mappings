@@ -77,7 +77,7 @@
 
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" text @click="dialog = false">
+                        <v-btn color="primary" text @click="dialog = false; show = true">
                             Exit
                         </v-btn>
                     </v-card-actions>

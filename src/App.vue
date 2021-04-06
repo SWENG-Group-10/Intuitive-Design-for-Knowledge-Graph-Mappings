@@ -93,7 +93,7 @@
         <v-footer padless color="blue" dark height="100">
             <v-col class="text-center" cols="12">
                 <v-btn color="green">
-                    Download mapping as .json<br>
+                    Download Mapping<br>
                     <v-icon>mdi-download</v-icon>
                 </v-btn>
             </v-col>

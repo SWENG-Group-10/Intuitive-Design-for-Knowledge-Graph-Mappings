@@ -26,18 +26,24 @@ export default {
                     snap: true
                 },
                 toolbox: `<xml>
-          <category name="Class" colour="%{BKY_LOGIC_HUE}">
-            <block type="controls_if"></block>
+          <category name="Class" colour="green">
           </category>
-          <category name="ID" colour="%{BKY_LOOPS_HUE}">
+          <category name="ID" colour="blue">
           </category>
-          <category name="Relation" colour="%{BKY_MATH_HUE}">
+          <category name="Relation" colour="red">
           </category>
-          <category name="Value" colour="%{BKY_VARIABLES_HUE}">
+          <category name="Value" colour="black">
+          <block type="math_number">
+                <field name="NUM"></field>
+            </block>
+            <block type="text">
+            </block>
+            <block type="text_length"></block>
+            <block type="text_print"></block>
             </category>
-          <category name="Function" colour="%{BKY_LOOPS_HUE}">
+          <category name="Function" colour="purple">
           </category>
-          <category name="Type" colour="%{BKY_LOOPS_HUE}">
+          <category name="Type" colour="yellow">
           </category>
         </xml>`
             }

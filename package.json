@@ -23,6 +23,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "execa": "latest",
+    "raw-loader": "^4.0.2",
     "rimraf": "^3.0.2",
     "sass": "^1.32.0",
     "sass-loader": "^10.0.0",

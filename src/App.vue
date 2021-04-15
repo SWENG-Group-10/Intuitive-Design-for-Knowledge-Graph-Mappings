@@ -109,6 +109,7 @@ import Ontology from "./components/Ontology"
 import Mapping from "./components/Mapping"
 import Backend from "./Backend/Backend"
 
+
 export default {
     name: "App",
 

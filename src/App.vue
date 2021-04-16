@@ -80,19 +80,17 @@
             </v-btn>
             <v-toolbar-title>Knowledge Graph Mapping Tool</v-toolbar-title>
 
-            
             <v-row class="text-right">
-            <v-col>
-            <v-btn elevation="2" icon medium >
-                <v-icon > mdi-information </v-icon>
-                
-            </v-btn>
-    
+                <v-col>
+                    <v-btn elevation="2" icon medium>
+                        <v-icon> mdi-information </v-icon>
 
-            <v-btn elevation="2" icon medium>
-                <v-icon> mdi-github </v-icon>
-            </v-btn>
-            </v-col>
+                    </v-btn>
+
+                    <v-btn elevation="2" icon medium>
+                        <v-icon> mdi-github </v-icon>
+                    </v-btn>
+                </v-col>
             </v-row>
 
         </v-toolbar>

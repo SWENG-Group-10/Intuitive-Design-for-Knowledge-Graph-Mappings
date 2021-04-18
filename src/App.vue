@@ -109,7 +109,6 @@ import Ontology from "./components/Ontology"
 import Mapping from "./components/Mapping"
 import Backend from "./Backend/Backend"
 
-
 export default {
     name: "App",
 
@@ -166,7 +165,7 @@ export default {
             reader.onerror = evt => {
                 console.error(evt)
             }
-            this.onTTLPicked()
+            this.onTTLPicked(file)
             this.ttlChosen = true
             if (this.jsonChosen && this.ttlChosen) {
                 this.chosen = true
@@ -178,7 +177,25 @@ export default {
             console.log(crawledJSON)
         },
 
-        onTTLPicked: function () {
+        onTTLPicked: function (file) {
+            const fs = require('fs');
+            var output = file.getAsText('utf-8')
+            fs.writeFile('../public/university.ttl', output, (err) => {
+                if (err) {
+                    errorHandler(err);
+                    return;
+                }
+
+                successHandler();
+            });
+
+            function errorHandler(err) {
+                alert(err.message);
+            }
+
+            function successHandler() {
+                alert("success")
+            }
             console.log(this.ttl);
         }
     },

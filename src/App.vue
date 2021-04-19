@@ -82,16 +82,16 @@
 
             <v-row class="text-right">
                 <v-col>
-                    <v-btn elevation="2" icon medium>
+                    <v-btn elevation="0" icon medium>
                         <v-icon> mdi-help </v-icon>
 
                     </v-btn>
-                    <v-btn elevation="2" icon medium>
+                    <v-btn elevation="0" icon medium>
                         <v-icon> mdi-information </v-icon>
 
                     </v-btn>
 
-                    <v-btn elevation="2" icon medium>
+                    <v-btn elevation="0" icon medium>
                         <v-icon> mdi-github </v-icon>
                     </v-btn>
                 </v-col>

@@ -83,6 +83,10 @@
             <v-row class="text-right">
                 <v-col>
                     <v-btn elevation="2" icon medium>
+                        <v-icon> mdi-help </v-icon>
+
+                    </v-btn>
+                    <v-btn elevation="2" icon medium>
                         <v-icon> mdi-information </v-icon>
 
                     </v-btn>

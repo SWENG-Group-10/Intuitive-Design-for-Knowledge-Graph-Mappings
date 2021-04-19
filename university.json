@@ -1,0 +1,540 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org",
+  "header" : {
+    "baseIris" : [ "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://xmlns.com/foaf/0.1", "http://example.org/voc" ],
+    "prefixList" : {
+      "obda" : "https://w3id.org/obda/vocabulary#",
+      "owl" : "http://www.w3.org/2002/07/owl#",
+      "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "ex" : "http://example.org/",
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "" : "http://example.org/voc#",
+      "xml" : "http://www.w3.org/XML/1998/namespace",
+      "foaf" : "http://xmlns.com/foaf/0.1/",
+      "rdfs" : "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "iri" : "http://example.org/voc#"
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "17",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://example.org/voc#Student",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Student"
+    },
+    "subClasses" : [ "2", "3" ],
+    "id" : "0",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://example.org/voc#AssociateProfessor",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AssociateProfessor"
+    },
+    "id" : "6",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "http://example.org/voc#PostDoc",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PostDoc"
+    },
+    "id" : "8",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "http://example.org/voc#FacultyMember",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FacultyMember"
+    },
+    "subClasses" : [ "11", "9" ],
+    "id" : "10",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://example.org/voc#GraduateStudent",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "GraduateStudent"
+    },
+    "subClasses" : [ "14" ],
+    "id" : "3",
+    "superClasses" : [ "0" ]
+  }, {
+    "iri" : "http://example.org/voc#AssistantProfessor",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AssistantProfessor"
+    },
+    "id" : "19",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "http://example.org/voc#Course",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Course"
+    },
+    "id" : "5"
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Person",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "subClasses" : [ "0", "10" ],
+    "attributes" : [ "external" ],
+    "id" : "1"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "26",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://example.org/voc#PhDStudent",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PhDStudent"
+    },
+    "id" : "14",
+    "superClasses" : [ "3", "9" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "32",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "37",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "17",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://example.org/voc#EducationalInstitution",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EducationalInstitution"
+    },
+    "id" : "39"
+  }, {
+    "iri" : "http://example.org/voc#ExternalTeacher",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ExternalTeacher"
+    },
+    "id" : "22",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://example.org/voc#FullProfessor",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FullProfessor"
+    },
+    "id" : "28",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "http://example.org/voc#Professor",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Professor"
+    },
+    "subClasses" : [ "6", "28", "19" ],
+    "id" : "7",
+    "superClasses" : [ "11", "9" ]
+  }, {
+    "iri" : "http://example.org/voc#UndergraduateStudent",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "UndergraduateStudent"
+    },
+    "id" : "2",
+    "superClasses" : [ "0" ]
+  }, {
+    "iri" : "http://example.org/voc#Teacher",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Teacher"
+    },
+    "subClasses" : [ "7", "22" ],
+    "id" : "11",
+    "superClasses" : [ "10" ]
+  }, {
+    "iri" : "http://example.org/voc#Researcher",
+    "baseIri" : "http://example.org/voc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Researcher"
+    },
+    "subClasses" : [ "8", "7", "14" ],
+    "id" : "9",
+    "superClasses" : [ "10" ]
+  } ],
+  "property" : [ {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "12",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "13",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "15",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "16",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "20",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "24",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "25",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "30",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "31",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "33",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "34",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "35",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "36",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "38",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "40",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "41",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "18",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "46",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "47",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://example.org/voc#attends",
+    "baseIri" : "http://example.org/voc",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "attends"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "4"
+  }, {
+    "range" : "1",
+    "domain" : "0",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "12"
+  }, {
+    "range" : "9",
+    "domain" : "14",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "13"
+  }, {
+    "range" : "1",
+    "domain" : "10",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "15"
+  }, {
+    "iri" : "http://example.org/voc#givesLab",
+    "baseIri" : "http://example.org/voc",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "givesLab"
+    },
+    "superproperty" : [ "18" ],
+    "domain" : "17",
+    "attributes" : [ "object" ],
+    "id" : "16"
+  }, {
+    "range" : "9",
+    "domain" : "8",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "20"
+  }, {
+    "range" : "11",
+    "domain" : "22",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "21"
+  }, {
+    "range" : "9",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "23"
+  }, {
+    "range" : "7",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/lastName",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "range" : "26",
+    "label" : {
+      "IRI-based" : "lastName"
+    },
+    "domain" : "1",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "25"
+  }, {
+    "range" : "7",
+    "domain" : "28",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "27"
+  }, {
+    "range" : "11",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "29"
+  }, {
+    "range" : "3",
+    "domain" : "14",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "30"
+  }, {
+    "iri" : "http://example.org/voc#title",
+    "baseIri" : "http://example.org/voc",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "title"
+    },
+    "domain" : "17",
+    "attributes" : [ "datatype" ],
+    "id" : "31"
+  }, {
+    "range" : "10",
+    "domain" : "11",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "33"
+  }, {
+    "range" : "7",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "34"
+  }, {
+    "range" : "10",
+    "domain" : "9",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "35"
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/firstName",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "range" : "37",
+    "label" : {
+      "IRI-based" : "firstName"
+    },
+    "domain" : "1",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "36"
+  }, {
+    "range" : "1",
+    "domain" : "39",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "38"
+  }, {
+    "iri" : "http://example.org/voc#isGivenAt",
+    "baseIri" : "http://example.org/voc",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "isGivenAt"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "40"
+  }, {
+    "iri" : "http://example.org/voc#isSupervisedBy",
+    "baseIri" : "http://example.org/voc",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "isSupervisedBy"
+    },
+    "domain" : "3",
+    "attributes" : [ "object", "someValues" ],
+    "id" : "41"
+  }, {
+    "range" : "0",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "42"
+  }, {
+    "range" : "0",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "43"
+  }, {
+    "iri" : "http://example.org/voc#teaches",
+    "baseIri" : "http://example.org/voc",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "teaches"
+    },
+    "domain" : "11",
+    "subproperty" : [ "16", "44" ],
+    "attributes" : [ "object" ],
+    "id" : "18"
+  }, {
+    "range" : "39",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "45"
+  }, {
+    "range" : "1",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "46"
+  }, {
+    "iri" : "http://example.org/voc#isTaughtBy",
+    "inverse" : "18",
+    "baseIri" : "http://example.org/voc",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "isTaughtBy"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "http://example.org/voc#givesLecture",
+    "baseIri" : "http://example.org/voc",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "givesLecture"
+    },
+    "superproperty" : [ "18" ],
+    "domain" : "17",
+    "attributes" : [ "object" ],
+    "id" : "44"
+  } ]
+}

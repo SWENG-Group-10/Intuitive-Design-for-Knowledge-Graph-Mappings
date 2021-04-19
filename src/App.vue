@@ -177,26 +177,31 @@ export default {
             console.log(crawledJSON)
         },
 
-        onTTLPicked: function (file) {
-            const fs = require('fs');
-            var output = file.getAsText('utf-8')
-            fs.writeFile('../public/university.ttl', output, (err) => {
-                if (err) {
-                    errorHandler(err);
-                    return;
-                }
+        onTTLPicked: function () {
+            console.log(this.ttl)
+            // const data = JSON.stringify(this.arr)
+            // const fs = require('fs');
+            // try {
+            //     var data = this.ttl; // this is your data that you want to pass to the server (could be json)
+            //     //next you would initiate a XMLHTTPRequest as following (could be more advanced):
+            //     var url = "localhost:8080/university.ttl"; //your url to the server side file that will receive the data.
+            //     var http = new XMLHttpRequest();
+            //     http.open("POST", url, true);
 
-                successHandler();
-            });
+            //     //Send the proper header information along with the request
+            //     http.setRequestHeader("Content-type", "text/ttl");
+            //     // http.setRequestHeader("Content-length", data.length);
+            //     // http.setRequestHeader("Connection", "close");
 
-            function errorHandler(err) {
-                alert(err.message);
-            }
-
-            function successHandler() {
-                alert("success")
-            }
-            console.log(this.ttl);
+            //     http.onreadystatechange = function () { //Call a function when the state changes.
+            //         if (http.readyState == 4 && http.status == 200) {
+            //             alert(http.responseText); //check if the data was received successfully.
+            //         }
+            //     }
+            //     http.send(data);
+            // } catch (e) {
+            //     alert('Failed to save the file !');
+            // }
         }
     },
 };

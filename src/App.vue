@@ -82,12 +82,12 @@
 
             <v-row class="text-right">
                 <v-col>
-                    <v-btn elevation="2" icon medium>
+                    <v-btn icon>
                         <v-icon> mdi-information </v-icon>
 
                     </v-btn>
 
-                    <v-btn elevation="2" icon medium>
+                    <v-btn icon  target="_blank" href="https://github.com/SWENG-Group-10/Intuitive-Design-for-Knowledge-Graph-Mappings">
                         <v-icon> mdi-github </v-icon>
                     </v-btn>
                 </v-col>

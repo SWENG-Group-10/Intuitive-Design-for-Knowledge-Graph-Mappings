@@ -7,6 +7,7 @@
 <script>
 import BlocklyComponent from "./BlocklyComponent"
 import '../blocks/stocks'
+import '../blocks/blocks'
 import '../prompt'
 import BlocklyJS from 'blockly/javascript';
 export default {
@@ -18,7 +19,7 @@ export default {
         return {
             code: '',
             options: {
-                media: 'media/',
+                trashcan:true,
                 grid: {
                     spacing: 25,
                     length: 3,
@@ -27,23 +28,24 @@ export default {
                 },
                 toolbox: `<xml>
           <category name="Class" colour="green">
+          <block type="class_block"></block>
           </category>
           <category name="ID" colour="blue">
+          <block type="id_block"></block>
           </category>
           <category name="Relation" colour="red">
+          <block type="relation_block"></block>
           </category>
           <category name="Value" colour="black">
-          <block type="math_number">
-                <field name="NUM"></field>
-            </block>
-            <block type="text">
-            </block>
-            <block type="text_length"></block>
-            <block type="text_print"></block>
+                <block type="value_block"></block>
             </category>
           <category name="Function" colour="purple">
+          <block type="uc_block"></block>
+          <block type="lc_block"></block>
           </category>
           <category name="Type" colour="yellow">
+          <block type="str_block"></block>
+          <block type="num_block"></block>
           </category>
         </xml>`
             }

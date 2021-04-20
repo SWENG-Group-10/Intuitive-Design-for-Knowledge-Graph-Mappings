@@ -1,14 +1,16 @@
 <template>
-<v-card flat tile height="800">
-    <BlocklyComponent id="blockly2" :options="options" ref="foo"></BlocklyComponent>
-</v-card>
+<div>
+    <v-card flat tile height="800">
+        <BlocklyComponent id="blockly2" :options="options" ref="foo">
+        </BlocklyComponent>
+    </v-card>
+    <v-btn @click="showCode()">HELLO</v-btn>
+</div>
 </template>
 
 <script>
 import BlocklyComponent from "./BlocklyComponent"
-import '../blocks/stocks'
 import '../blocks/blocks'
-import '../prompt'
 import BlocklyJS from 'blockly/javascript';
 export default {
     name: 'app',
@@ -19,7 +21,7 @@ export default {
         return {
             code: '',
             options: {
-                trashcan:true,
+                trashcan: true,
                 grid: {
                     spacing: 25,
                     length: 3,
@@ -54,6 +56,7 @@ export default {
     methods: {
         showCode() {
             this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace);
+            console.log(this.code)
         }
 
     }
@@ -62,10 +65,10 @@ export default {
 
 <style>
 #blockly2 {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
 }
 </style>

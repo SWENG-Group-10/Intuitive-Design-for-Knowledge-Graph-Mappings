@@ -2,9 +2,6 @@
   <div>
     <div class="blocklyDiv" ref="blocklyDiv">
     </div>
-    <xml ref="blocklyToolbox" style="display:none">
-      <slot></slot>
-    </xml>
   </div>
 </template>
 

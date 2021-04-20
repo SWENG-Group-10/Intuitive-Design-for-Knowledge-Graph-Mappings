@@ -1,10 +1,16 @@
 <template>
 <div>
-    <v-card flat tile height="800">
+    <v-card flat tile height="700">
         <BlocklyComponent id="blockly2" :options="options" ref="foo">
         </BlocklyComponent>
     </v-card>
-    <v-btn @click="showCode()">HELLO</v-btn>
+    <v-footer padless color="blue" dark height="100">
+        <v-col class="text-center" cols="12">
+            <v-btn @click="test()" icon>
+                <v-icon>mdi-download</v-icon>
+            </v-btn>
+        </v-col>
+    </v-footer>
 </div>
 </template>
 
@@ -20,6 +26,7 @@ export default {
     data() {
         return {
             code: '',
+            mapping: '',
             options: {
                 trashcan: true,
                 grid: {
@@ -54,9 +61,27 @@ export default {
         }
     },
     methods: {
-        showCode() {
-            this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace);
-            console.log(this.code)
+        saveFile: function () {
+            this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace)
+            let json = this.code.slice(0, -2)
+            this.mapping = JSON.parse(json)
+            const data = JSON.stringify(this.mapping, null, 2)
+            const blob = new Blob([data], {
+                type: 'text/plain'
+            })
+            const e = document.createEvent('MouseEvents'),
+                a = document.createElement('a');
+            a.download = "mapping.json";
+            a.href = window.URL.createObjectURL(blob);
+            a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
+            e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            a.dispatchEvent(e);
+        },
+        test(){
+            this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace)
+            let json = this.code.slice(0, -2)
+            console.log(json)
+            this.mapping = JSON.parse(json)
         }
 
     }

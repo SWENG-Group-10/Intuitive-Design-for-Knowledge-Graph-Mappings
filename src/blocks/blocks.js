@@ -46,7 +46,11 @@ Blockly.Blocks["relation_block"] = {
 
 Blockly.JavaScript["relation_block"] = function(block) {
   var rel_name = block.getFieldValue("relation");
-  var value = Blockly.JavaScript.valueToCode(block, "Val");
+  var value = Blockly.JavaScript.valueToCode(
+    block,
+    "Val",
+    Blockly.JavaScript.ORDER_ADDITION
+  );
   var code = "";
   if (block.getNextBlock() == null) {
     code = `"${rel_name}" : "${value}"\n`;
@@ -68,9 +72,13 @@ Blockly.Blocks["value_block"] = {
 
 Blockly.JavaScript["value_block"] = function(block) {
   var val_name = block.getFieldValue("value");
-  var type = Blockly.JavaScript.valueToCode(block, "Ty");
+  var type = Blockly.JavaScript.valueToCode(
+    block,
+    "Ty",
+    Blockly.JavaScript.ORDER_ADDITION
+  );
   var code = `{"${val_name}" : {\n"type": "${type}"\n}}`;
-  return code;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.Blocks["uc_block"] = {
@@ -102,8 +110,7 @@ Blockly.Blocks["str_block"] = {
 };
 
 Blockly.JavaScript["str_block"] = function() {
-  var code = `"String"\n`;
-  return code;
+  return [`"String"\n`, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.Blocks["num_block"] = {

@@ -1,5 +1,6 @@
 import * as Blockly from "blockly/core";
 
+// Class Block
 Blockly.Blocks["class_block"] = {
   init: function() {
     this.appendValueInput("ID")
@@ -18,6 +19,7 @@ Blockly.JavaScript["class_block"] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// ID Block
 Blockly.Blocks["id_block"] = {
   init: function() {
     this.appendDummyInput().appendField(new Blockly.FieldTextInput("ID"), "id");
@@ -32,6 +34,7 @@ Blockly.JavaScript["id_block"] = function(block) {
   return code;
 };
 
+// Relation Block
 Blockly.Blocks["relation_block"] = {
   init: function() {
     this.appendValueInput("Val").appendField(
@@ -61,6 +64,7 @@ Blockly.JavaScript["relation_block"] = function(block) {
   return code;
 };
 
+// Value Block
 Blockly.Blocks["value_block"] = {
   init: function() {
     this.appendValueInput("Ty")
@@ -83,6 +87,7 @@ Blockly.JavaScript["value_block"] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// UpperCase Block
 Blockly.Blocks["uc_block"] = {
   init: function() {
     this.appendValueInput("VALUE").appendField("UpperCase");
@@ -91,6 +96,7 @@ Blockly.Blocks["uc_block"] = {
   },
 };
 
+// LowerCase Block
 Blockly.Blocks["lc_block"] = {
   init: function() {
     this.appendValueInput("VALUE").appendField("LowerCase");
@@ -99,6 +105,7 @@ Blockly.Blocks["lc_block"] = {
   },
 };
 
+// String Block
 Blockly.Blocks["str_block"] = {
   init: function() {
     this.appendDummyInput().appendField("String");
@@ -112,10 +119,16 @@ Blockly.JavaScript["str_block"] = function() {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// Number Block
 Blockly.Blocks["num_block"] = {
   init: function() {
     this.appendDummyInput().appendField("Number");
     this.setOutput(true);
     this.setColour(202);
   },
+};
+
+Blockly.JavaScript["num_block"] = function() {
+  var code = `{"type" : "Number"}\n`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };

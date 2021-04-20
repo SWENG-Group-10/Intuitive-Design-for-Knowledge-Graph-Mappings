@@ -14,7 +14,7 @@ Blockly.Blocks["class_block"] = {
 Blockly.JavaScript["class_block"] = function(block) {
   var class_name = block.getFieldValue("Class");
   var content = Blockly.JavaScript.statementToCode(block, "Content");
-  var code = `"${class_name}" = {\n${content}\n}`;
+  var code = `{\n"${class_name}" : {\n${content}}\n}`;
   return code;
 };
 
@@ -28,7 +28,7 @@ Blockly.Blocks["id_block"] = {
 
 Blockly.JavaScript["id_block"] = function(block) {
   var id_name = block.getFieldValue("id");
-  var code = `= "${id_name}",`;
+  var code = `: "${id_name}"`;
   return code;
 };
 
@@ -46,13 +46,13 @@ Blockly.Blocks["relation_block"] = {
 
 Blockly.JavaScript["relation_block"] = function(block) {
   var rel_name = block.getFieldValue("relation");
-  var value = Blockly.JavaScript.valueToCode(
-    block,
-    "Val",
-    Blockly.JavaScript.ORDER_ADDITION
-  );
-
-  var code = `\n"${rel_name}" : ${value}\n`;
+  var value = Blockly.JavaScript.valueToCode(block, "Val");
+  var code = "";
+  if (block.getNextBlock() == null) {
+    code = `"${rel_name}" : "${value}"\n`;
+  } else {
+    code = `"${rel_name}" : "${value}",\n`;
+  }
   return code;
 };
 
@@ -68,12 +68,8 @@ Blockly.Blocks["value_block"] = {
 
 Blockly.JavaScript["value_block"] = function(block) {
   var val_name = block.getFieldValue("value");
-  var type = Blockly.JavaScript.valueToCode(
-    block,
-    "Ty",
-    Blockly.JavaScript.ORDER_ADDITION
-  );
-  var code = `"${val_name}" = {\n"type": "${type}"\n},\n}`;
+  var type = Blockly.JavaScript.valueToCode(block, "Ty");
+  var code = `{"${val_name}" : {\n"type": "${type}"\n}}`;
   return code;
 };
 
@@ -106,7 +102,7 @@ Blockly.Blocks["str_block"] = {
 };
 
 Blockly.JavaScript["str_block"] = function() {
-  var code = `"String,\n"`;
+  var code = `"String"\n`;
   return code;
 };
 

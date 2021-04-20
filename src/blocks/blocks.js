@@ -1,50 +1,21 @@
 import * as Blockly from "blockly/core";
 
-Blockly.Blocks["stock_buy_simple"] = {
-  init: function() {
-    this.appendValueInput("Number")
-      .setCheck("Number")
-      .appendField("Buy Stock ID")
-      .appendField(new Blockly.FieldNumber(0), "ID")
-      .appendField("For amount")
-      .appendField(new Blockly.FieldNumber(0), "Amount")
-      .appendField("At Price")
-      .appendField(new Blockly.FieldNumber(0), "Price");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, "String");
-    this.setColour(230);
-    this.setTooltip("buy id");
-    this.setHelpUrl("https://example.com");
-  },
-};
-Blockly.Blocks["stock_buy_prog"] = {
-  init: function() {
-    this.appendValueInput("Number")
-      .setCheck("Number")
-      .appendField("Buy Stock ID");
-    this.appendValueInput("NAME")
-      .setCheck("Number")
-      .appendField("For amount");
-    this.appendValueInput("NAME")
-      .setCheck("Number")
-      .appendField("At Price");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, "String");
-    this.setColour(230);
-    this.setTooltip("buy id");
-    this.setHelpUrl("https://example.com");
-  },
-};
-
 Blockly.Blocks["class_block"] = {
   init: function() {
     this.appendValueInput("ID")
       .setCheck("String")
       .appendField(new Blockly.FieldTextInput("Class"), "Class");
+    this.appendStatementInput("Content");
     this.setColour(390);
     this.setOutput(true);
-    this.setNextStatement(true);
   },
+};
+
+Blockly.JavaScript["class_block"] = function(block) {
+  var class_name = block.getFieldValue("Class");
+  var content = Blockly.JavaScript.statementToCode(block, "Content");
+  var code = `"${class_name}" = {\n${content}\n}`;
+  return code;
 };
 
 Blockly.Blocks["id_block"] = {
@@ -55,9 +26,15 @@ Blockly.Blocks["id_block"] = {
   },
 };
 
+Blockly.JavaScript["id_block"] = function(block) {
+  var id_name = block.getFieldValue("id");
+  var code = `= "${id_name}",`;
+  return code;
+};
+
 Blockly.Blocks["relation_block"] = {
   init: function() {
-    this.appendValueInput("ID").appendField(
+    this.appendValueInput("Val").appendField(
       new Blockly.FieldTextInput("Relation"),
       "relation"
     );
@@ -67,14 +44,37 @@ Blockly.Blocks["relation_block"] = {
   },
 };
 
+Blockly.JavaScript["relation_block"] = function(block) {
+  var rel_name = block.getFieldValue("relation");
+  var value = Blockly.JavaScript.valueToCode(
+    block,
+    "Val",
+    Blockly.JavaScript.ORDER_ADDITION
+  );
+
+  var code = `\n"${rel_name}" : ${value}\n`;
+  return code;
+};
+
 Blockly.Blocks["value_block"] = {
   init: function() {
-    this.appendValueInput("ID")
+    this.appendValueInput("Ty")
       .setCheck("String")
       .appendField(new Blockly.FieldTextInput("Value"), "value");
     this.setOutput(true);
     this.setColour(300);
   },
+};
+
+Blockly.JavaScript["value_block"] = function(block) {
+  var val_name = block.getFieldValue("value");
+  var type = Blockly.JavaScript.valueToCode(
+    block,
+    "Ty",
+    Blockly.JavaScript.ORDER_ADDITION
+  );
+  var code = `"${val_name}" = {\n"type": "${type}"\n},\n}`;
+  return code;
 };
 
 Blockly.Blocks["uc_block"] = {
@@ -103,6 +103,11 @@ Blockly.Blocks["str_block"] = {
     this.setOutput(true);
     this.setColour(202);
   },
+};
+
+Blockly.JavaScript["str_block"] = function() {
+  var code = `"String,\n"`;
+  return code;
 };
 
 Blockly.Blocks["num_block"] = {

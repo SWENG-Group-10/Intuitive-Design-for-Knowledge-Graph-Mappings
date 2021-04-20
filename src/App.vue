@@ -86,7 +86,7 @@
 
             <v-row class="text-right">
                 <v-col>
-                    <v-btn elevation="0" icon medium>
+                    <v-btn elevation="0" icon medium @click="help = true">
                         <v-icon> mdi-help </v-icon>
 
                     </v-btn>
@@ -117,6 +117,34 @@
                 </v-card-text>
                 <v-card-text>
                     Clients: ADAPT Centre
+                </v-card-text>
+            </v-card>
+        </v-dialog>
+
+        <!-- Dialog Box for Help Page, appears after help button is clicked -->
+        <v-dialog v-model="help" width="500">
+            <v-card>
+                <v-card-title class="headline lighten-2">
+                    Help
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-card-text>
+                    Welcome,
+                </v-card-text>
+                <v-card-text>
+                    The top right part of the page displays your ttl file.
+                </v-card-text>
+                <v-card-text>
+                    The bottom right part of the page displays your JSON file.
+                </v-card-text>
+                <v-card-text>
+                    On the left hand side you can find jigsaw pieces to drag and connect.
+                </v-card-text>
+                <v-card-text>
+                    Don't forget you can download your Mapping by pressing the "Download Mapping" button at the bottom of the page.
+                </v-card-text>
+                <v-card-text>
+                    To upload new files please press the return button on the top left of the page.
                 </v-card-text>
             </v-card>
         </v-dialog>
@@ -168,7 +196,8 @@ export default {
         ttlChosen: false,
         jsonChosen: false,
         dialog: false, //boolean for return button dialog box
-        info: false, //boolean for info icon dialog box
+        info: false, //boolean for info button dialog box
+        help: false, //boolean for help button dialog box
         text: "",
         ttl: ""
     }),

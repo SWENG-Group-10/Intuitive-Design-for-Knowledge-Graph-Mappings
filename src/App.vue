@@ -86,7 +86,7 @@
                         <v-icon> mdi-help </v-icon>
 
                     </v-btn>
-                    <v-btn elevation="0" icon medium>
+                    <v-btn elevation="0" icon medium @click="info = true">
                         <v-icon> mdi-information </v-icon>
 
                     </v-btn>
@@ -96,8 +96,25 @@
                     </v-btn>
                 </v-col>
             </v-row>
-
         </v-toolbar>
+
+        <v-dialog v-model="info" width="500">
+            <v-card>
+                <v-card-title class="headline lighten-2">
+                    Information
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-card-text>
+                    Software Engineering Project to allow users to easily create, edit and visualise Knowledge Graphs from imported files.
+                </v-card-text>
+                <v-card-text>
+                    Contributors: Daniel Grace, David Green, Sanil Gupta, Ailbhe Merriman, Nathan Doussot, Matthew Dowse
+                </v-card-text>
+                <v-card-text>
+                    Clients: ADAPT Centre
+                </v-card-text>
+            </v-card>
+        </v-dialog>
 
         <v-row align-content="start" no-gutters>
             <v-col>
@@ -143,6 +160,7 @@ export default {
         ttlChosen: false,
         jsonChosen: false,
         dialog: false,
+        info: false, //boolean for info icon
         text: "",
         ttl: ""
     }),

@@ -6,7 +6,7 @@
     </v-card>
     <v-footer padless color="blue" dark height="100">
         <v-col class="text-center" cols="12">
-            <v-btn @click="test()" icon>
+            <v-btn @click="saveFile()" icon>
                 <v-icon>mdi-download</v-icon>
             </v-btn>
         </v-col>

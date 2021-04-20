@@ -15,7 +15,7 @@ Blockly.JavaScript["class_block"] = function(block) {
   var class_name = block.getFieldValue("Class");
   var content = Blockly.JavaScript.statementToCode(block, "Content");
   var code = `{\n"${class_name}" : {\n${content}}\n}`;
-  return code;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.Blocks["id_block"] = {
@@ -51,11 +51,12 @@ Blockly.JavaScript["relation_block"] = function(block) {
     "Val",
     Blockly.JavaScript.ORDER_ADDITION
   );
+  value = value.substring(1, value.length - 1);
   var code = "";
   if (block.getNextBlock() == null) {
-    code = `"${rel_name}" : "${value}"\n`;
+    code = `"${rel_name}" : ${value}\n`;
   } else {
-    code = `"${rel_name}" : "${value}",\n`;
+    code = `"${rel_name}" : ${value},\n`;
   }
   return code;
 };
@@ -77,26 +78,23 @@ Blockly.JavaScript["value_block"] = function(block) {
     "Ty",
     Blockly.JavaScript.ORDER_ADDITION
   );
-  var code = `{"${val_name}" : {\n"type": "${type}"\n}}`;
+  type = type.substring(1, type.length - 1);
+  var code = `{"${val_name}" : ${type}}`;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.Blocks["uc_block"] = {
   init: function() {
-    this.appendValueInput("VALUE")
-      .setCheck("String")
-      .appendField("UpperCase");
-    this.setOutput(true, "Number");
+    this.appendValueInput("VALUE").appendField("UpperCase");
+    this.setOutput(true);
     this.setColour(340);
   },
 };
 
 Blockly.Blocks["lc_block"] = {
   init: function() {
-    this.appendValueInput("VALUE")
-      .setCheck("String")
-      .appendField("LowerCase");
-    this.setOutput(true, "Number");
+    this.appendValueInput("VALUE").appendField("LowerCase");
+    this.setOutput(true);
     this.setColour(340);
   },
 };
@@ -104,13 +102,14 @@ Blockly.Blocks["lc_block"] = {
 Blockly.Blocks["str_block"] = {
   init: function() {
     this.appendDummyInput().appendField("String");
-    this.setOutput(true);
+    this.setOutput(true, "String");
     this.setColour(202);
   },
 };
 
 Blockly.JavaScript["str_block"] = function() {
-  return [`"String"\n`, Blockly.JavaScript.ORDER_NONE];
+  var code = `{"type" : "String"}\n`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.Blocks["num_block"] = {

@@ -1,16 +1,18 @@
 <template>
 <div>
-    <v-card flat tile height="700">
-        <BlocklyComponent id="blockly2" :options="options" ref="foo">
-        </BlocklyComponent>
-    </v-card>
-    <v-footer padless color="blue" dark height="100">
+    <v-card tile flat color="blue" max-height="50">
         <v-col class="text-center" cols="12">
-            <v-btn @click="saveFile()" icon>
+            <v-btn @click="saveFile()" height="30" block color="green" dark>
+                Download Mapping as .json
                 <v-icon>mdi-download</v-icon>
             </v-btn>
         </v-col>
-    </v-footer>
+    </v-card>
+    <v-card flat tile height="750">
+        <BlocklyComponent id="blockly2" :options="options" ref="foo">
+        </BlocklyComponent>
+    </v-card>
+    
 </div>
 </template>
 

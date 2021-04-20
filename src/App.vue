@@ -106,10 +106,7 @@
         </v-row>
         <v-footer padless color="blue" dark height="100">
             <v-col class="text-center" cols="12">
-                <v-btn color="green">
-                    Download Mapping<br>
-                    <v-icon>mdi-download</v-icon>
-                </v-btn>
+                <h1>TCD ADAPT</h1>
             </v-col>
         </v-footer>
     </div>

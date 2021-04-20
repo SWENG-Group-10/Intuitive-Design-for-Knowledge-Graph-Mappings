@@ -1,6 +1,7 @@
 <template>
 <v-app>
 
+    <!-- Arrival Page to Upload Files -->
     <v-dialog v-model="show" persistent>
         <v-card width="100%" :loading="loading">
             <v-card-title class="justify-center">
@@ -53,6 +54,8 @@
             </v-container>
         </v-card>
     </v-dialog>
+
+    <!-- Dialog Box to return to Arrival Page, appears when left arrow is clicked -->
     <v-dialog v-model="dialog" width="500">
         <v-card>
             <v-card-title class="headline lighten-2">
@@ -73,6 +76,7 @@
         </v-card>
     </v-dialog>
 
+    <!-- Header Portion of Page with Return Button, Title, Help, Information, GitHub -->
     <div v-if="!show">
         <v-toolbar color="blue" dark>
             <v-btn icon @click="dialog = true">
@@ -98,6 +102,7 @@
             </v-row>
         </v-toolbar>
 
+        <!-- Dialog Box for Information Page, appears after info button is clicked -->
         <v-dialog v-model="info" width="500">
             <v-card>
                 <v-card-title class="headline lighten-2">
@@ -116,6 +121,7 @@
             </v-card>
         </v-dialog>
 
+        <!-- Layout of Page with Mapping, Ontology, JSON Viewer-->
         <v-row align-content="start" no-gutters>
             <v-col>
                 <Mapping />
@@ -125,6 +131,8 @@
                 <JSONViewer :file="text" />
             </v-col>
         </v-row>
+
+        <!-- Download Button, bottom of page -->
         <v-footer padless color="blue" dark height="100">
             <v-col class="text-center" cols="12">
                 <v-btn color="green">
@@ -133,8 +141,8 @@
                 </v-btn>
             </v-col>
         </v-footer>
-    </div>
 
+    </div>
 </v-app>
 </template>
 
@@ -154,13 +162,13 @@ export default {
     },
 
     data: () => ({
-        loading: false,
+        loading: false, //boolean for Loading Bar on Arrival Upload Page
         show: true,
         chosen: false,
         ttlChosen: false,
         jsonChosen: false,
-        dialog: false,
-        info: false, //boolean for info icon
+        dialog: false, //boolean for return button dialog box
+        info: false, //boolean for info icon dialog box
         text: "",
         ttl: ""
     }),

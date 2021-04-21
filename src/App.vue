@@ -1,6 +1,7 @@
 <template>
 <v-app>
 
+    <!-- Arrival Page to Upload Files -->
     <v-dialog v-model="show" persistent>
         <v-card width="100%" :loading="loading">
             <v-card-title class="justify-center">
@@ -53,6 +54,8 @@
             </v-container>
         </v-card>
     </v-dialog>
+
+    <!-- Dialog Box to return to Arrival Page, appears when left arrow is clicked -->
     <v-dialog v-model="dialog" width="500">
         <v-card>
             <v-card-title class="headline lighten-2">
@@ -73,6 +76,7 @@
         </v-card>
     </v-dialog>
 
+    <!-- Header Portion of Page with Return Button, Title, Help, Information, GitHub -->
     <div v-if="!show">
         <v-toolbar color="blue" dark>
             <v-btn icon @click="dialog = true">
@@ -82,7 +86,11 @@
 
             <v-row class="text-right">
                 <v-col>
-                    <v-btn icon>
+                    <v-btn icon @click="help = true">
+                        <v-icon> mdi-help </v-icon>
+
+                    </v-btn>
+                    <v-btn icon @click="info = true">
                         <v-icon> mdi-information </v-icon>
 
                     </v-btn>
@@ -92,9 +100,56 @@
                     </v-btn>
                 </v-col>
             </v-row>
-
         </v-toolbar>
 
+        <!-- Dialog Box for Information Page, appears after info button is clicked -->
+        <v-dialog v-model="info" width="500">
+            <v-card>
+                <v-card-title class="headline lighten-2">
+                    Information
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-card-text>
+                    Software Engineering Project to allow users to easily create, edit and visualise Knowledge Graphs from imported files.
+                </v-card-text>
+                <v-card-text>
+                    Contributors: Daniel Grace, David Green, Sanil Gupta, Ailbhe Merriman, Nathan Doussot, Matthew Dowse
+                </v-card-text>
+                <v-card-text>
+                    Clients: ADAPT Centre
+                </v-card-text>
+            </v-card>
+        </v-dialog>
+
+        <!-- Dialog Box for Help Page, appears after help button is clicked -->
+        <v-dialog v-model="help" width="500">
+            <v-card>
+                <v-card-title class="headline lighten-2">
+                    Help
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-card-text>
+                    Welcome,
+                </v-card-text>
+                <v-card-text>
+                    The top right part of the page displays your ttl file.
+                </v-card-text>
+                <v-card-text>
+                    The bottom right part of the page displays your JSON file.
+                </v-card-text>
+                <v-card-text>
+                    On the left hand side you can find jigsaw pieces to drag and connect.
+                </v-card-text>
+                <v-card-text>
+                    Don't forget you can download your Mapping by pressing the "Download Mapping" button at the bottom of the page.
+                </v-card-text>
+                <v-card-text>
+                    To upload new files please press the return button on the top left of the page.
+                </v-card-text>
+            </v-card>
+        </v-dialog>
+
+        <!-- Layout of Page with Mapping, Ontology, JSON Viewer-->
         <v-row align-content="start" no-gutters>
             <v-col>
                 <Mapping />
@@ -104,13 +159,15 @@
                 <JSONViewer :file="text" />
             </v-col>
         </v-row>
+
+        <!-- Download Button, bottom of page -->
         <v-footer padless color="blue" dark height="100">
             <v-col class="text-center" cols="12">
                 <h1>TCD ADAPT</h1>
             </v-col>
         </v-footer>
-    </div>
 
+    </div>
 </v-app>
 </template>
 
@@ -130,12 +187,14 @@ export default {
     },
 
     data: () => ({
-        loading: false,
+        loading: false, //boolean for Loading Bar on Arrival Upload Page
         show: true,
         chosen: false,
         ttlChosen: false,
         jsonChosen: false,
-        dialog: false,
+        dialog: false, //boolean for return button dialog box
+        info: false, //boolean for info button dialog box
+        help: false, //boolean for help button dialog box
         text: "",
         ttl: ""
     }),

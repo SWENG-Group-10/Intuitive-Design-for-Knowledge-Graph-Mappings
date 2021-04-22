@@ -208,7 +208,7 @@
                             </v-btn>
 
                             <v-btn text @click="e1 = 3">
-                                I Got It Thanks!
+                                Previous
                             </v-btn>
                         </v-stepper-content>
 

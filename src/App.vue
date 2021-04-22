@@ -314,6 +314,7 @@ export default {
             reader.readAsText(file, "UTF-8")
             reader.onload = evt => {
                 this.ttl = evt.target.result
+                console.log = evt.target.result
             }
             reader.onerror = evt => {
                 console.error(evt)
@@ -331,7 +332,11 @@ export default {
         },
 
         onTTLPicked: function () {
-            console.log(this.ttl);
+            console.log("here")
+            let file = this.$refs.ttlfile.files[0]
+            Ontology.implement(file);
+            
+
         }
     },
 };

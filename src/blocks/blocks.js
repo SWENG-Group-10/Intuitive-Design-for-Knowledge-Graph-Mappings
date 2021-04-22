@@ -102,6 +102,17 @@ Blockly.Blocks["uc_block"] = {
   },
 };
 
+Blockly.JavaScript["uc_block"] = function(block) {
+  var type = Blockly.JavaScript.valueToCode(
+    block,
+    "VALUE",
+    Blockly.JavaScript.ORDER_ADDITION
+  );
+  type = type.substring(1, type.length - 1);
+  var code = `${type}`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 // LowerCase Block
 Blockly.Blocks["lc_block"] = {
   init: function() {
@@ -109,6 +120,17 @@ Blockly.Blocks["lc_block"] = {
     this.setOutput(true);
     this.setColour(340);
   },
+};
+
+Blockly.JavaScript["lc_block"] = function(block) {
+  var type = Blockly.JavaScript.valueToCode(
+    block,
+    "VALUE",
+    Blockly.JavaScript.ORDER_ADDITION
+  );
+  type = type.substring(1, type.length - 1);
+  var code = `${type}`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 // String Block

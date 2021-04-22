@@ -3,7 +3,7 @@
     <!-- Wrap the JSON displayer in a read only Vue Container -->
     <!-- deals with large JSON Schema as well as small -->
     <v-container style="max-height: 399px" class="overflow-y-auto">
-        <pre v-highlightjs><code class="JSON">{{file}}</code></pre>
+        <pre>{{file}}</pre>
     </v-container>
 </v-card>
 </template>

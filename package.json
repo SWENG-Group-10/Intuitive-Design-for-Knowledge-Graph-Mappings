@@ -11,6 +11,7 @@
   "dependencies": {
     "blockly": "^5.20210325.0",
     "core-js": "^3.6.5",
+    "highlight.js": "^10.7.2",
     "sweetalert2": "^10.15.7",
     "vue": "^2.6.11",
     "vuetify": "^2.4.0",

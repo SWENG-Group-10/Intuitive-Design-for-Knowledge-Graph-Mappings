@@ -333,8 +333,8 @@ export default {
 
         onTTLPicked: function () {
             console.log("here")
-            let file = this.$refs.ttlfile.files[0]
-            Ontology.implement(file);
+            // let file = this.$refs.ttlfile.files[0]
+            // Ontology.implement(file);
             
 
         }

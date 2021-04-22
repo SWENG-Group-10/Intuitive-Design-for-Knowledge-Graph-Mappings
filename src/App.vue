@@ -334,7 +334,20 @@ export default {
         onTTLPicked: function () {
             console.log("here")
             let file = this.$refs.ttlfile.files[0]
-            Ontology.implement(file);
+            /*   attempt # 10 using axios post to alter the path
+                only allowed to work when running a local host, -> WebVowl not allowed to acces local host.
+            */
+
+           console.log(file)
+            // var formData = new FormData();
+            // formData.append("file", _file);
+            // formData.append("id", 7878);
+            // axios.post("/api/uploadFile", formData)
+            //     .then(function (result) {
+            //         console.log(result);
+            //     }, function (error) {
+            //         console.log(error);
+            //     });
             
 
         }

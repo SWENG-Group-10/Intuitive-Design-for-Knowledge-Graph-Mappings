@@ -57,27 +57,24 @@
 
     <!-- Dialog Box to return to Arrival Page, appears when left arrow is clicked -->
     <v-dialog v-model="dialog" width="500">
-        <v-card>
-            <v-card-title class="headline lighten-2">
-                Are you sure?
-            </v-card-title>
+        <v-card class="text-center">
+            <h2 class="mb-2">Are You Sure?</h2>
             <v-card-text>
                 If you press 'Reset' you will delete your current mapping.<br>Press 'Cancel' to continue current mapping.
             </v-card-text>
             <v-divider></v-divider>
-            <v-card-actions>
-                <v-btn color="grey" text @click="dialog = false">
+                <v-btn color="blue" dark @click="dialog = false" class="mr-2 mb-2 mt-2">
                     Cancel
                 </v-btn>
-                <v-btn color="red" text @click="dialog = false; show = true">
+                <v-btn color="red" dark @click="dialog = false; show = true" class="mb-2 mt-2">
                     Reset
                 </v-btn>
-            </v-card-actions>
         </v-card>
     </v-dialog>
 
-    <!-- Header Portion of Page with Return Button, Title, Help, Information, GitHub -->
+    <!-- Conditionally rendering the main page after file upload-->
     <div v-if="!show">
+        <!-- Header Portion of Page with Return Button, Title, Help, Information, GitHub -->
         <v-toolbar color="blue" dark>
             <v-btn icon @click="dialog = true">
                 <v-icon>mdi-arrow-left</v-icon>
@@ -248,7 +245,7 @@
         <!-- Download Button, bottom of page -->
         <v-footer padless color="blue" dark height="100">
             <v-col class="text-center" cols="12">
-                <v-img src="./assets/adapt.png" max-height="75" max-width="75" class="mx-auto"></v-img>
+                <a href="https://www.adaptcentre.ie/" target="_blank"><v-img src="./assets/adapt.png" max-height="78" max-width="90" class="mx-auto"></v-img></a>
             </v-col>
         </v-footer>
 

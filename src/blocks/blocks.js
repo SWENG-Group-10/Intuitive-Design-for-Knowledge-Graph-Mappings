@@ -15,7 +15,13 @@ Blockly.Blocks["class_block"] = {
 Blockly.JavaScript["class_block"] = function(block) {
   var class_name = block.getFieldValue("Class");
   var content = Blockly.JavaScript.statementToCode(block, "Content");
-  var code = `{\n"${class_name}" : {\n${content}}\n}`;
+  var ID = Blockly.JavaScript.valueToCode(
+    block,
+    "ID",
+    Blockly.JavaScript.ORDER_ADDITION
+  );
+  ID = ID.substring(1, ID.length - 1);
+  var code = `{\n"${class_name}" : {\n${ID}\n${content}}\n}`;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
@@ -30,8 +36,8 @@ Blockly.Blocks["id_block"] = {
 
 Blockly.JavaScript["id_block"] = function(block) {
   var id_name = block.getFieldValue("id");
-  var code = `: "${id_name}"`;
-  return code;
+  var code = `"ID" : "${id_name}",`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 // Relation Block

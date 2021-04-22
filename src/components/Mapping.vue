@@ -79,13 +79,6 @@ export default {
             e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
             a.dispatchEvent(e);
         },
-        test(){
-            this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace)
-            let json = this.code.slice(0, -2)
-            console.log(json)
-            this.mapping = JSON.parse(json)
-        }
-
     }
 }
 </script>

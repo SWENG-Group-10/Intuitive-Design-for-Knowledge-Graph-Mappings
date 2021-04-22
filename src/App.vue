@@ -5,7 +5,7 @@
     <v-dialog v-model="show" persistent>
         <v-card width="100%" :loading="loading">
             <v-card-title class="justify-center">
-                Upload Files
+                Welcome to our Knowledge Graph Mapping Tool
             </v-card-title>
 
             <v-divider class="mx-4"></v-divider>
@@ -26,14 +26,14 @@
 
                 <v-row>
                     <v-col class="text-center">
-                        <v-btn color="black lighten-2" text>
-                            Drag and Drop your file here
-                        </v-btn>
+                        <v-text color="black lighten-2" text>
+                            Click or Drag and Drop your file below
+                        </v-text>
                     </v-col>
                     <v-col class="text-center">
-                        <v-btn color="black lighten-2" text>
-                            Drag and Drop your file here
-                        </v-btn>
+                        <v-text color="black lighten-2" text>
+                            Click or Drag and Drop your file below
+                        </v-text>
                     </v-col>
                 </v-row>
 
